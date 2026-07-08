@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desalination and How It Helps Super El Niño | Team NEXUS</title>
+  <meta name="description" content="A stylish big-website concept showing how next-generation desalination can reduce drought risks during Super El Niño events while turning brine waste into valuable clean-economy products." />
+  <style>
+    :root {
+      --deep: #0B132B;
+      --navy: #102044;
+      --blue: #0077b6;
+      --cyan: #48CAE4;
+      --green: #9dff32;
+      --mint: #90E0EF;
+      --sand: #f3d59a;
+      --white: #FFFFFF;
+      --muted: #b8c9d7;
+      --danger: #ff8a5c;
+      --glass: rgba(255, 255, 255, 0.10);
+      --line: rgba(255, 255, 255, 0.18);
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Montserrat, Roboto, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--deep);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem clamp(1rem, 4vw, 4rem);
+      background: rgba(4, 17, 31, 0.82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 0 16px rgba(66, 245, 255, 0.55));
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.8rem, 2vw, 1.65rem);
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .nav a { transition: color 0.25s ease, text-shadow 0.25s ease; }
+    .nav a:hover { color: var(--green); text-shadow: 0 0 15px rgba(157, 255, 50, 0.7); }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 7rem 1.2rem 5rem;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(4, 17, 31, 0.28), rgba(4, 17, 31, 0.88)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80") center/cover;
+      z-index: -3;
+      transform: scale(1.08);
+      animation: tide 22s ease-in-out infinite alternate;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -25% -10%;
+      height: 42%;
+      background: radial-gradient(circle at center, rgba(0, 167, 255, 0.35), transparent 65%);
+      z-index: -2;
+      filter: blur(10px);
+    }
+    @keyframes tide { from { transform: scale(1.05) translateX(-1%); } to { transform: scale(1.14) translateX(1%); } }
+
+    .hero-content { max-width: 1040px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid rgba(157, 255, 50, 0.55);
+      border-radius: 999px;
+      background: rgba(157, 255, 50, 0.09);
+      color: var(--green);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 1.3rem;
+    }
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.9rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+    }
+    .hero p {
+      max-width: 840px;
+      margin: 0 auto 2.3rem;
+      color: #dff7ff;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 2rem;
+      border-radius: 999px;
+      color: #061208;
+      background: linear-gradient(135deg, var(--green), var(--mint));
+      font-weight: 1000;
+      box-shadow: 0 0 30px rgba(157, 255, 50, 0.45), inset 0 -3px 0 rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .cta:hover { transform: translateY(-4px); box-shadow: 0 0 48px rgba(157, 255, 50, 0.72); }
+
+    section { padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem); }
+    .section-title {
+      max-width: 850px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .section-title h2 { font-size: clamp(2.1rem, 4.6vw, 4.2rem); line-height: 1.05; letter-spacing: -0.04em; }
+    .section-title p { color: var(--muted); margin-top: 1rem; font-size: 1.12rem; }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+      max-width: 1220px;
+      margin: auto;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .visual {
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+    .dry { background: linear-gradient(rgba(65, 32, 12, 0.25), rgba(4, 17, 31, 0.75)), url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80") center/cover; }
+    .water { background: linear-gradient(rgba(0, 120, 190, 0.20), rgba(4, 17, 31, 0.66)), url("https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=1200&q=80") center/cover; }
+    .content-card { padding: clamp(1.5rem, 4vw, 3rem); }
+    .content-card h3 { font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.1; margin-bottom: 1rem; }
+    .content-card p, .content-card li { color: #d5e5ee; }
+    .content-card ul { list-style: none; margin-top: 1.5rem; display: grid; gap: 1rem; }
+    .content-card li { padding-left: 2rem; position: relative; }
+    .content-card li::before { content: "✦"; position: absolute; left: 0; color: var(--green); }
+
+    .cards {
+      max-width: 1220px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    .science-card, .product-card, .strategy-card {
+      position: relative;
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .science-card:hover, .product-card:hover, .strategy-card:hover { transform: translateY(-8px); border-color: rgba(157, 255, 50, 0.55); }
+    .icon { font-size: 2.6rem; margin-bottom: 1rem; }
+    .science-card h3, .product-card h3, .strategy-card h3 { font-size: 1.45rem; margin-bottom: 0.8rem; }
+    .science-card p, .product-card p, .strategy-card p { color: var(--muted); }
+
+    .products { background: linear-gradient(180deg, #102044, #0B132B); }
+    .product-grid {
+      max-width: 1220px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    .formula {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.45rem 0.8rem;
+      border-radius: 12px;
+      background: rgba(66, 245, 255, 0.12);
+      color: var(--cyan);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-weight: 900;
+    }
+
+    .india-wrap {
+      max-width: 1220px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .map-card {
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background: radial-gradient(circle at 70% 25%, rgba(157, 255, 50, 0.16), transparent 25%), rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+    .india-svg { width: min(80%, 360px); filter: drop-shadow(0 0 24px rgba(66, 245, 255, 0.45)); }
+    .hub { fill: var(--green); animation: pulse 1.9s infinite alternate; }
+    @keyframes pulse { from { opacity: 0.55; r: 5; } to { opacity: 1; r: 9; } }
+    .strategy-list { display: grid; gap: 1rem; }
+
+    footer {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: #020912;
+      border-top: 1px solid var(--line);
+    }
+    footer h2 { font-size: clamp(2rem, 4vw, 3.6rem); letter-spacing: -0.04em; }
+    .team { margin: 1.5rem auto; color: #e8f8ff; font-size: 1.12rem; }
+    .team strong { color: var(--green); letter-spacing: 0.15em; }
+    .socials { display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0; }
+    .socials a { border: 1px solid var(--line); padding: 0.75rem 1rem; border-radius: 999px; color: var(--muted); }
+    .socials a:hover { color: var(--green); border-color: var(--green); }
+    .copyright { color: #74899a; }
+
+
+    .global-section {
+      background: linear-gradient(180deg, #0B132B 0%, #102044 48%, #0B132B 100%);
+    }
+    .comparison-map {
+      max-width: 1220px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .map-panel {
+      padding: 1.6rem;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+    .map-panel h3 { margin-bottom: 1rem; font-size: 1.3rem; color: var(--cyan); }
+    .world-svg, .coast-svg { width: 100%; min-height: 315px; }
+    .leader { fill: var(--green); filter: drop-shadow(0 0 10px rgba(157, 255, 50, 0.9)); }
+    .india-dot { fill: var(--cyan); filter: drop-shadow(0 0 10px rgba(72, 202, 228, 0.9)); animation: pulse 1.8s infinite alternate; }
+    .roadmap-copy {
+      max-width: 1220px;
+      margin: 2rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+    .roadmap-copy article {
+      padding: 1.5rem;
+      border-radius: 24px;
+      border: 1px solid rgba(72, 202, 228, 0.28);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .roadmap-copy h3 { color: var(--cyan); margin-bottom: 0.7rem; }
+    .roadmap-copy p { color: #dcecf4; }
+
+    .conclusion {
+      color: #0B132B;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.98)),
+        url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=80") center/cover;
+      text-align: center;
+    }
+    .conclusion-card {
+      max-width: 980px;
+      margin: auto;
+      padding: clamp(2rem, 5vw, 4rem);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 30px 80px rgba(11, 19, 43, 0.18);
+      backdrop-filter: blur(8px);
+    }
+    .conclusion h2 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1; letter-spacing: -0.06em; margin-bottom: 1rem; }
+    .conclusion p { font-size: clamp(1.1rem, 2vw, 1.35rem); color: #21304f; }
+
+    @media (max-width: 900px) {
+      .site-header { align-items: flex-start; flex-direction: column; }
+      .nav { flex-wrap: wrap; }
+      .split, .cards, .product-grid, .india-wrap, .comparison-map, .roadmap-copy { grid-template-columns: 1fr; }
+      .visual, .map-card { min-height: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="#home" class="logo" aria-label="Team Nexus home">
+      <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="A stylized water drop turning into a lightning bolt">
+        <defs><linearGradient id="boltDrop" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#48CAE4"/><stop offset="1" stop-color="#9dff32"/></linearGradient></defs>
+        <path d="M32 4C22 17 14 27 14 39c0 12 8 21 18 21 8 0 15-5 17-13H35l7-17H28l8-22c-1-1-2-3-4-4Z" fill="url(#boltDrop)"/>
+      </svg>
+      <span>Team NEXUS</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#home">Home</a><a href="#crisis">The Crisis</a><a href="#science">The Science</a><a href="#wealth">Wealth from Waste</a><a href="#india">India Strategy</a><a href="#team">Team</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">Climate-proof water • Clean-energy chemistry</div>
+        <h1>Turning the Tide: Drought Resilience Through Next-Gen Desalination</h1>
+        <p>Neutralizing the Super El Niño threat by transforming ocean water into life-saving agriculture resources and clean energy.</p>
+        <a class="cta" href="#science">Explore the Solution</a>
+      </div>
+    </section>
+
+    <section id="crisis">
+      <div class="section-title"><h2>The Threat &amp; The Shield</h2><p>Super El Niño can turn water insecurity into a national emergency. Desalination gives coastal nations a rainfall-independent safety reserve.</p></div>
+      <div class="split">
+        <div class="panel visual dry" aria-label="Cracked dry earth graphic"></div>
+        <div class="panel content-card water">
+          <h3>How Desalination Reduces the Impact of Super El Niño</h3>
+          <p>Super El Niño triggers catastrophic shifts in global weather, leading to extreme droughts and depleted freshwater aquifers.</p>
+          <ul>
+            <li><strong>The Buffer Effect:</strong> Desalination creates an independent, climate-proof water supply that does not rely on rainfall.</li>
+            <li><strong>Agricultural Salvation:</strong> Ensures a steady flow of irrigation water to sustain drought-resistant crops even when traditional canals run dry.</li>
+            <li><strong>Ecosystem Relief:</strong> Prevents the over-extraction of fragile groundwater and lakes during prolonged dry seasons.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="science">
+      <div class="section-title"><h2>The Core Science</h2><p>A closed-loop plant can desalinate seawater, capture concentrated brine, and convert that waste stream into valuable chemical and energy products.</p></div>
+      <div class="cards">
+        <article class="science-card"><div class="icon">💧</div><h3>Step 1: Advanced Desalination</h3><p>Reverse Osmosis (RO) pushes seawater through microscopic membranes, separating pure freshwater from highly concentrated salt waste called brine.</p></article>
+        <article class="science-card"><div class="icon">⚡</div><h3>Step 2: The Chlor-Alkali Process</h3><p>Instead of dumping toxic brine back into the ocean, a powerful electrical current runs through it in electrolysis to break apart saltwater molecules.</p></article>
+        <article class="science-card"><div class="icon">🛡️</div><h3>Step 3: Chlor-Alkali Benefits</h3><p><strong>Zero Liquid Discharge</strong> protects marine ecosystems. <strong>Energy Storage</strong> uses excess solar power. <strong>Economic Loop</strong> turns waste disposal into manufacturing.</p></article>
+      </div>
+    </section>
+
+    <section id="wealth" class="products">
+      <div class="section-title"><h2>Wealth From Waste</h2><p>What do we extract from desalination waste? Brine becomes an input for fuel, sanitation, irrigation infrastructure, and industrial production.</p></div>
+      <div class="product-grid">
+        <article class="product-card"><div class="icon">🚛</div><h3>Green Hydrogen</h3><span class="formula">H₂</span><p>A zero-emission fuel source to power heavy transport, agricultural machinery, backup generators, and future clean fertilizer supply chains.</p></article>
+        <article class="product-card"><div class="icon">🧪</div><h3>Chlorine Gas</h3><span class="formula">Cl₂</span><p>Crucial for water purification, sanitizing public reservoirs, and manufacturing durable PVC pipes for modern irrigation networks.</p></article>
+        <article class="product-card"><div class="icon">🏭</div><h3>Caustic Soda</h3><span class="formula">NaOH</span><p>An essential industrial chemical used in paper manufacturing, aluminum processing, soap production, and textile treatment.</p></article>
+      </div>
+    </section>
+
+    <section id="india">
+      <div class="section-title"><h2>Implementation in India</h2><p>A strategic rollout for coastal security can connect India’s long coastline, solar expansion, and inland agriculture into one resilience network.</p></div>
+      <div class="india-wrap">
+        <div class="map-card" aria-label="Stylized map of India with glowing coastal hubs">
+          <svg class="india-svg" viewBox="0 0 320 430" role="img" aria-label="Stylized India map with glowing hubs along the coastline">
+            <path d="M150 18 203 54 218 104 263 147 248 207 223 236 226 282 198 338 166 407 133 332 101 285 82 226 49 197 58 147 91 120 86 68Z" fill="rgba(66,245,255,0.16)" stroke="#48CAE4" stroke-width="5"/>
+            <circle class="hub" cx="83" cy="217" r="7"/><circle class="hub" cx="201" cy="324" r="7"/><circle class="hub" cx="224" cy="204" r="7"/><circle class="hub" cx="104" cy="122" r="7"/>
+            <path d="M83 217 C125 250, 169 270, 201 324" fill="none" stroke="#9dff32" stroke-width="3" stroke-dasharray="8 8" opacity="0.75"/>
+          </svg>
+        </div>
+        <div class="strategy-list">
+          <article class="strategy-card"><h3>Coastal Tech Hubs</h3><p>Build integrated Desalination + Chlor-Alkali plants along extensive coastal zones like Tamil Nadu and Gujarat.</p></article>
+          <article class="strategy-card"><h3>Solar Integration</h3><p>Power these facilities using India’s rapidly expanding solar grid to keep the carbon footprint at absolute zero.</p></article>
+          <article class="strategy-card"><h3>Pipeline Infrastructure</h3><p>Pump generated freshwater directly to inland agricultural belts and use manufactured chlorine to treat urban municipal water systems.</p></article>
+          <article class="strategy-card"><h3>Government Subsidies</h3><p>Leverage existing Make in India and green energy initiatives to fund the initial infrastructure setup.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="world" class="global-section">
+      <div class="section-title"><h2>The Roadmap for India</h2><p>Implementation in India vs. the world: learn from global desalination leaders, then scale India’s coastal advantage into a zero-waste resilience network.</p></div>
+      <div class="comparison-map">
+        <div class="map-panel">
+          <h3>Global desalination leaders</h3>
+          <svg class="world-svg" viewBox="0 0 760 380" role="img" aria-label="World map highlighting Israel and UAE in green">
+            <rect width="760" height="380" rx="28" fill="rgba(72,202,228,0.08)"/>
+            <path d="M78 110 188 82 250 124 217 189 119 200 62 160Z" fill="rgba(255,255,255,0.13)"/>
+            <path d="M255 100 348 77 429 109 409 176 320 188 271 151Z" fill="rgba(255,255,255,0.13)"/>
+            <path d="M420 154 538 118 658 157 691 244 596 284 481 247Z" fill="rgba(255,255,255,0.13)"/>
+            <path d="M318 214 384 222 414 303 368 346 308 300Z" fill="rgba(255,255,255,0.13)"/>
+            <circle class="leader" cx="417" cy="159" r="9"/><text x="430" y="154" fill="#FFFFFF" font-size="18" font-weight="800">Israel</text>
+            <circle class="leader" cx="463" cy="178" r="9"/><text x="476" y="188" fill="#FFFFFF" font-size="18" font-weight="800">UAE</text>
+            <path d="M417 159 C470 120, 560 110, 642 95" fill="none" stroke="#9dff32" stroke-width="3" stroke-dasharray="8 9"/>
+          </svg>
+        </div>
+        <div class="map-panel">
+          <h3>India’s 7,500 km coastal opportunity</h3>
+          <svg class="coast-svg" viewBox="0 0 420 
+            430" role="img" aria-label="India coastline with glowing potential desalination sites">
+            <rect width="420" height="430" rx="28" fill="rgba(72,202,228,0.08)"/>
+            <path d="M198 28 252 64 267 113 314 154 298 213 270 244 272 287 244 341 210 408 175 335 142 288 123 231 88 199 99 148 132 122 126 70Z" fill="rgba(72,202,228,0.15)" stroke="#48CAE4" stroke-width="5"/>
+            <path d="M124 122 C96 165, 91 207, 125 232 C140 252, 144 283, 174 333 C190 361, 198 386, 210 408" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.85"/>
+            <circle class="india-dot" cx="110" cy="205" r="8"/><circle class="india-dot" cx="133" cy="245" r="8"/><circle class="india-dot" cx="166" cy="318" r="8"/><circle class="india-dot" cx="212" cy="382" r="8"/><circle class="india-dot" cx="291" cy="212" r="8"/>
+            <text x="36" y="380" fill="#FFFFFF" font-size="18" font-weight="800">Potential coastal hubs</text>
+          </svg>
+        </div>
+      </div>
+      <div class="roadmap-copy">
+        <article><h3>The Global Standard</h3><p>Countries like Israel already produce up to 80% of their drinking water through desalination, while the UAE relies heavily on it to sustain its desert cities.</p></article>
+        <article><h3>India's Current State</h3><p>India is beginning to awaken to this potential. Coastal cities are already leading the way—for instance, plants in Minjur and Nemmeli provide hundreds of millions of liters of water to the grid daily.</p></article>
+        <article><h3>The Next Step</h3><p>India has a massive coastline but faces severe groundwater depletion. To implement this nationwide, the government must upgrade existing plants with Chlor-Alkali reactors, utilize abundant coastal solar energy to power the process, and establish public-private partnerships to distribute chemical by-products to India's booming manufacturing sector.</p></article>
+      </div>
+    </section>
+
+    <section id="conclusion" class="conclusion">
+      <div class="conclusion-card">
+        <h2>A Sustainable Blueprint</h2>
+        <p>We do not have to choose between fresh water, industrial growth, and environmental protection. By combining desalination with the Chlor-Alkali process, we transform a heavy-footprint necessity into a zero-waste engine of prosperity. It is a vital shield against climate anomalies like Super El Niño and a stepping stone toward true water and resource independence.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="team">
+    <h2>The Minds Behind the Mission</h2>
+    <div class="team">
+      <p>Project Conceptualized and Developed By:</p>
+      <p><strong>TEAM NEXUS</strong></p>
+      <p>G Avirakshan · V P Visnu Varadhan · R Ashwin</p>
+    </div>
+    <div class="socials"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="mailto:teamnexus@example.com">Email</a></div>
+    <p class="copyright">© 2026 Team NEXUS. Innovating for a sustainable future.</p>
+  </footer>
+</body>
+                                                                                                                                                                                                                    </html>
+            
