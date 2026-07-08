@@ -9,4 +9,4 @@ index c4facfc1d50aa51f3685228e789f233b386926f6..f4a5998b74049e0dc0f24c3f6a0c751e
 +
 +A polished one-page website concept by Team NEXUS explaining how next-generation desalination can reduce drought impacts during Super El Niño and convert brine waste into useful clean-economy products.
 +
-+open index.html` in a browser to view the site.
++open 'index.html` in a browser to view the site.
